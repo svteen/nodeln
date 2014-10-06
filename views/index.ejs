@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='/css/bootstrap-theme.min.css' />
+    <link rel='stylesheet' href='/css/blog.css' />
+  </head>
+  <body ng-controller="UserListCtrl">     
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="">
+            <span>SVP</span>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active">
+              <a href="javascript:;">Home</a>
+            </li>
+            <li>
+              <a href="javascript:;">Blog</a>
+            </li>
+            <li>
+              <a href="javascript:;">About</a>
+            </li>
+            <li>
+              <a href="javascript:;">F@ck</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section class="main">
+      <div class="container">
+        <div class="col-md-9">
+          <div class="post-list">
+            <div class="post">
+              <div class="post-header">
+                <h3><a href="javascript:;">超级小懒虫的第一篇博文 </a></h3>
+                <div class="post-metas">
+                  <span class="glyphicon glyphicon-time gap">&nbsp;2014-08-02&nbsp;|&nbsp;</span>
+                  <span class="glyphicon glyphicon-tags gap">&nbsp;Javascript\NodeJs</span>
+                </div>
+                <a class="post-link" href="">
+                  <img  class="post-link-image" src="/uploads/s0000.jpg" alt="">
+                </a>
+                <div class="post-summary">
+                  <p>哗啦哗啦，人生就是一个悲剧哦，不是悲剧是什么东西，哈哈哈。。。this is for my lady。哗啦哗啦哗啦哗啦哗啦哗啦哗啦哗啦哗啦哗啦哗啦哗啦哗啦哗啦哗啦哗啦...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <ul class="pagination">
+              <li><a href="">&laquo;</a></li>
+              <li><a href="">1</a></li>
+              <li><a href="">2</a></li>
+              <li><a href="">3</a></li>
+              <li><a href="">&raquo;</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="test">
+      <!-- 用ng-repeat从REST服务取得users的数据模型 -->
+      Search: <input ng-model="user">
+      <div class="span10">
+          <!--Body content-->
+          <ul class="users">
+              <li ng-repeat="user in users | filter:user ">
+                  {{user.name}}
+              </li>
+          </ul>
+      </div>
+      <!-- 用ng-submit将user数据模型提交给后端，保存到MongoDB -->
+      <form name="myform" id="myform1" ng-submit="save()">
+          <fieldset>
+              <legend>New User</legend>
+                  <div class="control-group">
+                      <input type="text" placeholder="User…" ng-model="username" size=50 required/>
+                      <input type="text" placeholder="Password…" ng-model="password" size=50 required/>
+                      <input type="text" placeholder="Email…" ng-model="email" size=50 required/>
+                  </div>
+          </fieldset>
+          <p>
+               <div><button type="submit" >Save now...</button></div>
+          </p>
+      </form>
+    </div>
+    <script type="text/javascript" src="/js/angular.min.js"></script>
+    <script type="text/javascript" src="/js/ng/index.js"></script>
+  </body>
+</html>
